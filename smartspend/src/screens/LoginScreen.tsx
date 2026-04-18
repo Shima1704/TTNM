@@ -9,11 +9,10 @@ export default function LoginScreen() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-  // Hàm xử lý đăng nhập
+  // Hàm xử lý đăng nhập - ĐÃ SỬA THEO FLOW BẠN MUỐN
   const handleLogin = () => {
-    // Sau này bạn có thể thêm kiểm tra email/password thật
     if (email && password) {
-      navigate('/user-type');     // Chuyển sang màn chọn loại người dùng
+      navigate('/user-type');     // ← Chuyển sang màn chọn loại người dùng (User Type)
     } else {
       alert('Vui lòng nhập đầy đủ email và mật khẩu!');
     }
@@ -26,13 +25,13 @@ export default function LoginScreen() {
         <div className="grid grid-cols-2 gap-4">
           <div className="bg-[#1A2F2C] rounded-3xl p-5 shadow-inner">
             <p className="text-gray-400 text-sm">Số dư hôm nay</p>
-            <p className="text-2xl font-semibold text-white mt-1">28.900.000 đ</p>
+            <p className="text-2xl font-semibold text-white mt-1">28.900.000 ₫</p>
             <p className="text-emerald-400 text-xs mt-1">+2.4% so với hôm qua</p>
           </div>
 
           <div className="bg-[#1A2F2C] rounded-3xl p-5 shadow-inner">
             <p className="text-gray-400 text-sm">Tiết kiệm</p>
-            <p className="text-2xl font-semibold text-emerald-400 mt-1">+6.800.000 đ</p>
+            <p className="text-2xl font-semibold text-emerald-400 mt-1">+6.800.000 ₫</p>
           </div>
         </div>
       </div>
@@ -96,7 +95,7 @@ export default function LoginScreen() {
             </div>
           </div>
 
-          {/* Phần tách Đăng ký và Quên mật khẩu */}
+          {/* Link Đăng ký và Quên mật khẩu */}
           <div className="flex justify-between text-sm mt-2">
             <span 
               className="text-[#00C48C] font-medium cursor-pointer hover:underline"
@@ -113,7 +112,7 @@ export default function LoginScreen() {
             </span>
           </div>
 
-          {/* Nút Đăng nhập - ĐÃ SỬA */}
+          {/* Nút Đăng nhập */}
           <button 
             onClick={handleLogin}
             className="w-full bg-[#00C48C] hover:bg-[#00b37a] active:scale-[0.985] text-black font-semibold py-[18px] rounded-2xl text-lg transition mt-6 shadow-lg shadow-[#00C48C]/30"
@@ -122,7 +121,7 @@ export default function LoginScreen() {
           </button>
         </div>
 
-        {/* Phần hoặc + Social Login giữ nguyên */}
+        {/* Hoặc + Social Login */}
         <div className="flex items-center my-10">
           <div className="flex-1 h-px bg-gray-200"></div>
           <span className="px-6 text-gray-400 text-sm font-medium">hoặc</span>
