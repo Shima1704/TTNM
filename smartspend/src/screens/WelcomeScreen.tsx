@@ -93,7 +93,7 @@ export default function WelcomeScreen() {
 
       {/* Progress text */}
       <p className="text-center text-gray-500 text-xs mt-6">
-        Đang đồng bộ dữ liệu... 75%
+        Đang đồng bộ dữ liệu... 100%
       </p>
     </div>
   );
