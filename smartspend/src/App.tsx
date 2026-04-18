@@ -12,7 +12,6 @@ import WelcomeScreen from './screens/WelcomeScreen';
 function App() {
   return (
     <Routes>
-      {/* ── Auth ── */}
       <Route path="/" element={<LoginScreen />} />
       <Route path="/signup" element={<SignUpScreen />} />
       <Route path="/forgot-password" element={<ForgotPasswordScreen />} />

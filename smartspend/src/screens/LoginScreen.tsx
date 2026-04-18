@@ -9,6 +9,16 @@ export default function LoginScreen() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
+  // Hàm xử lý đăng nhập
+  const handleLogin = () => {
+    // Sau này bạn có thể thêm kiểm tra email/password thật
+    if (email && password) {
+      navigate('/user-type');     // Chuyển sang màn chọn loại người dùng
+    } else {
+      alert('Vui lòng nhập đầy đủ email và mật khẩu!');
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#0A1F1C] flex flex-col relative overflow-hidden">
       {/* Phần Balance ở trên */}
@@ -86,33 +96,39 @@ export default function LoginScreen() {
             </div>
           </div>
 
-          {/* Link Đăng ký / Quên mật khẩu */}
-          <div className="text-right">
+          {/* Phần tách Đăng ký và Quên mật khẩu */}
+          <div className="flex justify-between text-sm mt-2">
             <span 
-              className="text-[#00C48C] text-sm font-medium cursor-pointer hover:underline"
+              className="text-[#00C48C] font-medium cursor-pointer hover:underline"
               onClick={() => navigate('/signup')}
             >
-              Đăng Ký / Quên mật khẩu?
+              Đăng Ký
+            </span>
+            
+            <span 
+              className="text-[#00C48C] font-medium cursor-pointer hover:underline"
+              onClick={() => navigate('/forgot-password')}
+            >
+              Quên mật khẩu?
             </span>
           </div>
 
-          {/* Nút Đăng nhập */}
+          {/* Nút Đăng nhập - ĐÃ SỬA */}
           <button 
-            onClick={() => alert('Đăng nhập thành công!')}
-            className="w-full bg-[#00C48C] hover:bg-[#00b37a] active:scale-[0.985] text-black font-semibold py-[18px] rounded-2xl text-lg transition mt-4 shadow-lg shadow-[#00C48C]/30"
+            onClick={handleLogin}
+            className="w-full bg-[#00C48C] hover:bg-[#00b37a] active:scale-[0.985] text-black font-semibold py-[18px] rounded-2xl text-lg transition mt-6 shadow-lg shadow-[#00C48C]/30"
           >
             Đăng nhập
           </button>
         </div>
 
-        {/* Phần hoặc */}
+        {/* Phần hoặc + Social Login giữ nguyên */}
         <div className="flex items-center my-10">
           <div className="flex-1 h-px bg-gray-200"></div>
           <span className="px-6 text-gray-400 text-sm font-medium">hoặc</span>
           <div className="flex-1 h-px bg-gray-200"></div>
         </div>
 
-        {/* Social Login */}
         <div className="flex justify-center gap-8">
           <button className="w-14 h-14 bg-white border border-gray-200 rounded-2xl flex items-center justify-center shadow-sm hover:shadow transition">
             <img 
