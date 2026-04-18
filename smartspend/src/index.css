@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+/* Custom styles cho SmartSpend */
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #0A1F1C;
+  color: white;
+}
+
+/* Status bar (nếu cần) */
+.status-bar {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  font-size: 14px;
+}
