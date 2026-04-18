@@ -17,3 +17,12 @@ body {
   padding: 0 24px;
   font-size: 14px;
 }
+
+/* Ẩn thanh cuộn cho nội dung bên trong PhoneFrame */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE và Edge cũ */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}

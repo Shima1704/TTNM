@@ -35,22 +35,20 @@ export default function PhoneFrame({
     <div
       className={`relative mx-auto shadow-2xl ${className}`}
       style={{
-        width: '390px',           // iPhone 16 Pro size (gần giống)
+        width: '390px',
         height: '780px',
         background: '#111111',
-        borderRadius: '76px',     // iPhone 16 bo tròn hơn
+        borderRadius: '76px',
         padding: '12px',
         border: '14px solid #1a1a1a',
         overflow: 'hidden',
-        boxShadow: '0 30px 60px -15px rgb(0 0 0 / 0.6)',
+        boxShadow: '0 30px 60px -15px rgb(0 0 0 / 0.65)',
       }}
     >
-      {/* Dynamic Island (iPhone 16 style) */}
+      {/* Dynamic Island */}
       <div className="absolute top-3 left-1/2 -translate-x-1/2 z-50">
         <div className="w-36 h-8 bg-black rounded-[28px] flex items-center justify-center relative">
-          {/* Camera pill */}
           <div className="w-20 h-6 bg-zinc-900 rounded-full absolute" />
-          {/* Camera lens */}
           <div className="w-4 h-4 bg-zinc-800 rounded-full absolute left-6" />
         </div>
       </div>
@@ -64,7 +62,6 @@ export default function PhoneFrame({
         <div className="flex items-center gap-2">
           {network}
           <span>{battery}%</span>
-          {/* Battery Icon */}
           <div className="relative w-9 h-3.5 border border-current rounded-[3px] overflow-hidden">
             <div
               className="absolute top-[2px] left-[2px] h-[9px] bg-current rounded-[1px]"
@@ -75,10 +72,9 @@ export default function PhoneFrame({
         </div>
       </div>
 
-      {/* Scrollable Content - Ẩn hoàn toàn thanh cuộn */}
+      {/* Content Area - Quan trọng: relative + z-10 + pb lớn */}
       <div
-        className="h-[calc(100%-52px)] rounded-[48px] overflow-y-auto 
-                   scrollbar-none overscroll-contain"
+        className="relative h-[calc(100%-52px)] rounded-[48px] overflow-y-auto scrollbar-none overscroll-contain pb-32 z-10"
         style={contentStyle}
       >
         {children}

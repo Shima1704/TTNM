@@ -63,9 +63,10 @@ const OnboardingSummary = () => {
           ))}
         </div>
 
-        <div className="pb-8 pt-6">
+        {/* Button */}
+        <div className="pb-8 pt-4">
           <button
-            onClick={() => navigate('/dashboard')}
+            onClick={() => navigate('/dashboard')}   // ← Thay đổi ở đây
             className="w-full py-4 bg-[#00C48C] text-white font-semibold rounded-2xl text-base hover:bg-[#00b07e] active:scale-95 transition-all shadow-lg"
           >
             🚀 Vào Dashboard ngay!
