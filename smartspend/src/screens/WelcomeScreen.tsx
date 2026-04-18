@@ -4,55 +4,97 @@ import { useNavigate } from 'react-router-dom';
 export default function WelcomeScreen() {
   const navigate = useNavigate();
 
+  const handleStart = () => {
+    navigate('/onboarding/name');
+  };
+
   return (
     <div className="min-h-screen bg-[#0A1F1C] text-white px-6 py-8 flex flex-col relative overflow-hidden">
-      {/* Background decorative dots */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-3 h-3 bg-white rounded-full"></div>
-        <div className="absolute top-40 right-12 w-2 h-2 bg-white rounded-full"></div>
-        <div className="absolute bottom-40 left-20 w-4 h-4 bg-white rounded-full"></div>
+      {/* Decorative floating dots */}
+      <div className="absolute inset-0 opacity-30 pointer-events-none">
+        <div className="absolute top-20 left-12 w-2 h-2 bg-green-400 rounded-full"></div>
+        <div className="absolute top-32 right-16 w-3 h-3 bg-green-400 rounded-full"></div>
+        <div className="absolute bottom-40 left-20 w-1.5 h-1.5 bg-green-400 rounded-full"></div>
+        <div className="absolute bottom-28 right-24 w-2 h-2 bg-green-400 rounded-full"></div>
+      </div>
+
+      {/* Status Bar */}
+      <div className="flex justify-between items-center mb-8">
+        <div className="text-sm font-medium">9:41</div>
+        <div className="flex gap-1">
+          <div className="w-3 h-3 bg-white/80 rounded-full"></div>
+          <div className="w-3 h-3 bg-white/80 rounded-full"></div>
+          <div className="w-3 h-3 bg-white/80 rounded-full"></div>
+        </div>
       </div>
 
       <div className="flex-1 flex flex-col items-center justify-center text-center">
-        <div className="relative mb-8">
-          <div className="w-28 h-28 bg-gradient-to-br from-[#00C48C] to-[#00a67a] rounded-full flex items-center justify-center text-6xl shadow-2xl">
+        {/* Avatar with verification check */}
+        <div className="relative mb-6">
+          <div className="w-28 h-28 bg-gradient-to-br from-[#00C48C] to-[#00A67A] rounded-full flex items-center justify-center text-6xl shadow-2xl ring-4 ring-green-500/30">
             A
           </div>
-          <div className="absolute -bottom-1 -right-1 w-10 h-10 bg-green-400 rounded-full flex items-center justify-center border-4 border-[#0A1F1C]">
-            ✓
+          <div className="absolute -bottom-1 -right-1 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center border-4 border-[#0A1F1C]">
+            <span className="text-white text-xl">✓</span>
           </div>
         </div>
 
-        <h1 className="text-3xl font-bold mb-2">Xin chào,</h1>
-        <h2 className="text-3xl font-bold text-[#00C48C]">Nguyễn Văn An! 👋</h2>
+        {/* Success Badge */}
+        <div className="inline-flex items-center gap-2 bg-green-500/10 text-green-400 text-xs font-medium px-5 py-1.5 rounded-full mb-4 border border-green-500/30">
+          <span>✔</span> XÁC THỰC THÀNH CÔNG
+        </div>
 
-        <p className="text-gray-400 mt-6 text-[15px] max-w-[280px]">
-          Tài khoản của bạn đã được xác thực thành công.<br />
-          Bây giờ bạn có thể bắt đầu quản lý tài chính.
+        {/* Greeting */}
+        <h1 className="text-3xl font-bold mb-1">Xin chào,</h1>
+        <h2 className="text-3xl font-bold text-[#00C48C] mb-6">
+          Nguyễn Văn An! 👋
+        </h2>
+
+        <p className="text-gray-400 text-[15px] max-w-[300px] leading-relaxed">
+          Tài khoản của bạn đã được xác thực.<br />
+          Đang chuyển đến Dashboard...
         </p>
       </div>
 
-      {/* Quick Actions */}
-      <div className="space-y-3 mb-10">
-        <button className="w-full bg-[#1A2F2C] hover:bg-[#243D39] py-4 rounded-2xl text-left px-5 flex justify-between items-center">
-          <span>Cá nhân</span>
-          <span className="text-[#00C48C]">✓</span>
-        </button>
+      {/* Information Cards */}
+      <div className="grid grid-cols-2 gap-3 mb-8">
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-4 text-left">
+          <div className="text-xs text-gray-400 mb-1">Tài khoản</div>
+          <div className="font-medium">Cá nhân</div>
+        </div>
 
-        <button className="w-full bg-[#1A2F2C] hover:bg-[#243D39] py-4 rounded-2xl text-left px-5 flex justify-between items-center">
-          <span>Google</span>
-          <span className="text-[#00C48C]">✓</span>
-        </button>
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-4 text-left">
+          <div className="text-xs text-gray-400 mb-1">Đăng nhập qua</div>
+          <div className="font-medium flex items-center gap-2">
+            Google <span className="text-green-400">✓</span>
+          </div>
+        </div>
+
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-4 text-left">
+          <div className="text-xs text-gray-400 mb-1">Bảo mật</div>
+          <div className="font-medium text-green-400">Đã bật 2FA</div>
+        </div>
+
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-4 text-left">
+          <div className="text-xs text-gray-400 mb-1">Lần cuối</div>
+          <div className="font-medium">Vừa xong</div>
+        </div>
       </div>
 
-      <button 
-        onClick={() => navigate('/')} // hoặc trang Home chính
-        className="w-full bg-[#00C48C] text-black font-semibold py-4 rounded-2xl text-base"
+      {/* Big Start Button */}
+      <button
+        onClick={handleStart}
+        className="w-full bg-gradient-to-r from-[#00C48C] to-[#00A67A] 
+                   text-black font-semibold py-5 rounded-2xl text-lg 
+                   active:scale-95 transition-all shadow-xl shadow-green-500/40"
       >
-        Bắt đầu ngay
+        Bắt đầu ngay 🚀
       </button>
 
-      <p className="text-center text-gray-500 text-xs mt-6">Đang đồng bộ dữ liệu... 75%</p>
+      {/* Progress text */}
+      <p className="text-center text-gray-500 text-xs mt-6">
+        Đang đồng bộ dữ liệu... 75%
+      </p>
     </div>
   );
 }
